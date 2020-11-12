@@ -122,7 +122,7 @@ import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
 import { Accessories } from '@enso-ui/bulma';
 import { Tab } from '@enso-ui/tabs/bulma';
 import { mapState } from 'vuex';
-import PasswordStrength from '@enso-ui/ui/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
+import PasswordStrength from '@enso-ui/auth/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
 import DeleteModal from './components/DeleteModal.vue';
 import Tokens from './components/Tokens.vue';
 import Sessions from './components/Sessions.vue';
