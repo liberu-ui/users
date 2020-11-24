@@ -23,10 +23,11 @@ export default {
             this.visible = !this.visible;
         },
         visitProfile() {
-            this.$router.push({
-                name: 'administration.users.show',
-                params: { user: this.user.id },
-            });
+            const name = 'administration.users.show';
+
+            if (this.$route.name !== name) {
+                this.$router.push({ name, params: { user: this.user.id } });
+            }
         },
     },
 
