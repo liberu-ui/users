@@ -2,7 +2,7 @@
   "name": "@enso-ui/users",
   "version": "1.0.6",
   "description": "Basic users package",
-  "main": "src/bulma/pages/users/Index.vue",
+  "main": "bulma/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
