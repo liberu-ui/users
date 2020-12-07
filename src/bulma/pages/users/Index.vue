@@ -42,8 +42,3 @@ export default {
 };
 </script>
 
-<style lang="scss">
-    .avatar {
-        margin: auto;
-    }
-</style>
