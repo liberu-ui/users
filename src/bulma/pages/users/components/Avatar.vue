@@ -1,6 +1,6 @@
 <template>
     <figure class="image avatar"
-        v-tooltip="user.appellative || user.name">
+        v-tooltip="user.person.appellative || user.person.name">
         <img class="is-rounded"
             :src="route('core.avatars.show', user.avatar.id)">
     </figure>
