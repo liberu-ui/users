@@ -28,7 +28,7 @@
                 </span>
             </p>
             <p class="control">
-                <a class="button is-rounded is-small is-bold has-margin-left-medium"
+                <a class="button is-rounded is-small is-bold ml-2"
                     @click="fetch()">
                     <span>
                         {{ i18n('Reload') }}

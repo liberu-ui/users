@@ -13,12 +13,12 @@
                             @click="$emit('close')">
                             {{ i18n("Cancel") }}
                         </button>
-                        <button class="button is-danger has-margin-left-small"
+                        <button class="button is-danger ml-1"
                             v-focus
                             @click="destroy()">
                             {{ i18n("Delete User") }}
                         </button>
-                        <button class="button is-danger has-margin-left-small"
+                        <button class="button is-danger ml-1"
                             v-focus
                             @click="destroy(true)">
                             {{ i18n("Delete User and Person") }}

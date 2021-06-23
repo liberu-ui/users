@@ -1,9 +1,9 @@
 <template>
-    <div class="box has-padding-small raises-on-hover has-margin-bottom-medium">
+    <div class="box p-1 raises-on-hover mb-2">
         <div class="level">
             <div class="level-left">
                 <div class="level-item">
-                    <span class="icon is-small has-margin-small"
+                    <span class="icon is-small m-1"
                         v-tooltip="token.name">
                         <fa icon="key"/>
                     </span>

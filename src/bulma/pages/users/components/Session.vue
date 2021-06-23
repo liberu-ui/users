@@ -1,9 +1,9 @@
 <template>
-    <div class="box has-padding-small raises-on-hover has-margin-bottom-medium">
+    <div class="box p-1 raises-on-hover mb-2">
         <div class="level">
             <div class="level-left">
                 <div class="level-item">
-                    <span class="icon is-small has-margin-small"
+                    <span class="icon is-small m-1"
                         v-tooltip="session.ipAddress">
                         <fa icon="link"/>
                     </span>
@@ -12,15 +12,15 @@
             </div>
             <div class="level-right">
                 <div class="level-item">
-                    <span class="icon is-small has-margin-right-small"
+                    <span class="icon is-small mr-1"
                         v-tooltip="lastActivity(session)">
                         <fa icon="calendar-alt"/>
                     </span>
-                    <span class="icon is-small has-margin-right-small"
+                    <span class="icon is-small mr-1"
                         v-tooltip="`${session.OS} version: ${session.OSVersion}`">
                         <fa :icon="os(session)"/>
                     </span>
-                    <span class="icon is-small has-margin-right-small"
+                    <span class="icon is-small mr-1"
                         v-tooltip="`${session.browser} version: ${session.browserVersion}`">
                         <fa :icon="browser(session)"/>
                     </span>

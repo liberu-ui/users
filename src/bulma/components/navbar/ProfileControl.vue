@@ -7,7 +7,7 @@
                 <img class="is-rounded"
                     :src="avatarLink">
                 <span v-if="!isTouch"
-                    class="has-margin-left-small">
+                    class="ml-1">
                     {{ user.person.appellative || user.person.name }}
                 </span>
             </a>
@@ -22,19 +22,19 @@
                     <img class="is-rounded"
                         :src="avatarLink">
                     <span v-if="!isTouch"
-                        class="has-margin-left-small">
+                        class="ml-1">
                         {{ user.person.appellative || user.person.name }}
                     </span>
                 </a>
                 <div v-if="visible"
                     class="navbar-dropdown is-right">
-                    <div class="user-panel has-padding-medium">
+                    <div class="user-panel p-2">
                         <avatar class="is-96x96"
                             :user="user"/>
-                        <p class="title is-6 has-margin-top-large has-text-centered">
+                        <p class="title is-6 mt-3 has-text-centered">
                             {{ user.person.appellative }}
                         </p>
-                        <p class="subtitle is-6 has-margin-top-large has-text-centered">
+                        <p class="subtitle is-6 mt-3 has-text-centered">
                             {{ user.role.name }}
                         </p>
                     </div>
@@ -42,7 +42,7 @@
                     <nav class="level navbar-item">
                         <div class="level-left">
                             <div class="level-item">
-                                <a class="button is-small is-success has-margin-left-small"
+                                <a class="button is-small is-success ml-1"
                                     @click="visitProfile(); toggle()">
                                     <span>{{ i18n('Profile') }}</span>
                                     <span class="icon is-small">
@@ -53,7 +53,7 @@
                         </div>
                         <div class="level-right">
                             <div class="level-item">
-                                <a class="button is-small is-danger has-margin-left-large"
+                                <a class="button is-small is-danger ml-3"
                                     @click="logout(); toggle()">
                                     <span>{{ i18n('Logout') }}</span>
                                     <span class="icon is-small">

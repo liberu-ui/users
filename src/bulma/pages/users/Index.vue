@@ -8,7 +8,7 @@
                     :user="row"/>
             </template>
             <template v-slot:destroy-button="{ icon, cssClass, row }">
-                <a class="button is-small is-table-button has-margin-left-small"
+                <a class="button is-small is-table-button ml-1"
                     :class="cssClass"
                     @click="deletableUser = row.id">
                     <span class="icon is-small">
