@@ -11,7 +11,7 @@
                 ({{ profile.person.appellative }})
             </span>
         </h4>
-        <divider class="has-margin-bottom"/>
+        <divider class="mb-2"/>
         <div class="columns mt-3">
             <div class="column">
                 <div class="columns is-mobile">
@@ -73,7 +73,7 @@
                                 @click="$router.push({
                                     name: 'administration.users.edit',
                                     params: { user: profile.id },
-                                })"
+                                }).catch(routerErrorHandler)"
                                 v-if="canAccess('administration.users.edit')">
                                 <span class="icon">
                                     <fa icon="pencil-alt"/>
@@ -198,7 +198,7 @@ library.add(faUser, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt);
 export default {
     name: 'UserProfile',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route'],
+    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
 
     components: { Uploader, Divider },
 

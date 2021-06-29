@@ -4,7 +4,7 @@ import { mapState } from 'vuex';
 export default {
     name: 'CoreProfileControl',
 
-    inject: ['route'],
+    inject: ['route', 'routerErrorHandler'],
 
     data: () => ({
         visible: false,
@@ -23,11 +23,10 @@ export default {
             this.visible = !this.visible;
         },
         visitProfile() {
-            const name = 'administration.users.show';
-
-            if (this.$route.name !== name) {
-                this.$router.push({ name, params: { user: this.user.id } });
-            }
+            this.$router.push({
+                name: 'administration.users.show',
+                params: { user: this.user.id },
+            }).catch(this.routerErrorHandler);
         },
     },
 

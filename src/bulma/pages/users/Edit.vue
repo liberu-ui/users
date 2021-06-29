@@ -52,7 +52,7 @@
                             @click="$router.push({
                                 name: 'administration.people.edit',
                                 params: { person: $refs.form.param('personId') }
-                            })"
+                            }).catch(routerErrorHandler)"
                             v-if="ready">
                             <span class="is-hidden-mobile">
                                 {{ i18n('Edit Person') }}
@@ -143,7 +143,7 @@ export default {
         Tokens,
     },
 
-    inject: ['i18n', 'canAccess', 'route', 'toastr', 'errorHandler'],
+    inject: ['i18n', 'canAccess', 'errorHandler', 'route', 'routerErrorHandler', 'toastr'],
 
     data: () => ({
         deletableUser: null,
@@ -166,9 +166,9 @@ export default {
         navigateToIndex() {
             this.deletableUser = null;
 
-            this.$nextTick(() => {
-                this.$router.push({ name: 'administration.users.index' });
-            });
+            this.$nextTick(() => this.$router
+                .push({ name: 'administration.users.index' })
+                .catch(this.routerErrorHandler));
         },
         resetPassword() {
             axios.post(this.route('administration.users.resetPassword', this.$route.params))
