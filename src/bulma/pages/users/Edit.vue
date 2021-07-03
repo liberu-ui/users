@@ -80,9 +80,9 @@
                 </template>
             </enso-form>
             <accessories>
-                <template slot-scope="{ count }">
+                <template v-slot="{ count }">
                     <tab keep-alive
-                        v-if="canAccess('administration.users.tokens.index')"
+                        v-if="canAccessTokens"
                         id="Tokens">
                         <div class="columns is-centered">
                             <div class="column is-half">
@@ -159,6 +159,9 @@ export default {
             return this.canAccess('administration.users.sessions.index')
                 && (`${this.user.role.id}` === this.enums.roles.Admin
                 || this.user.id === this.$route.params.user);
+        },
+        canAccessTokens() {
+            return this.canAccess('administration.users.tokens.index');
         },
     },
 
