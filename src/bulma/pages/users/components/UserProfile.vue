@@ -119,7 +119,7 @@
             </div>
         </div>
         <divider/>
-        <div class="level is-mobile mt-2">
+        <div class="level is-mobile mt-4">
             <div class="level-item has-text-centered is-flex-direction-column has-right-border">
                 <p class="subtitle is-4">
                     {{ profile.loginCount }}
