@@ -119,7 +119,7 @@ import {
     faUserTie, faTrashAlt, faKey, faRedo,
 } from '@fortawesome/free-solid-svg-icons';
 import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-import Accessories from '@enso-ui/accessories';
+import Accessories from '@enso-ui/accessories/bulma';
 import { Tab } from '@enso-ui/tabs/bulma';
 import { mapState } from 'vuex';
 import PasswordStrength from '@enso-ui/auth/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
