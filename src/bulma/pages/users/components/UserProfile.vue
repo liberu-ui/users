@@ -36,7 +36,7 @@
                             :url="route('core.avatars.store')"
                             file-key="avatar"
                             v-if="isSelfVisiting">
-                            <template v-slot:control="{ controlEvents }">
+                            <template #:control="{ controlEvents }">
                                 <a class="button is-info"
                                     v-on="controlEvents">
                                     <span class="icon">
@@ -165,9 +165,9 @@ library.add(faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt,
 export default {
     name: 'UserProfile',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
-
     components: { Uploader, Divider },
+
+    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
 
     data: () => ({
         profile: null,

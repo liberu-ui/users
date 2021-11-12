@@ -7,15 +7,15 @@
                     ready = true;
                     pivotParams.userGroups.id = $refs.form.field('group_id').value;
                 ">
-                <template v-slot:group_id="props">
+                <template #group_id="props">
                     <form-field v-bind="props"
                         @input="pivotParams.userGroups.id = $event"/>
                 </template>
-                <template v-slot:role_id="props">
+                <template #role_id="props">
                     <form-field v-bind="props"
                         :pivot-params="pivotParams"/>
                 </template>
-                <template v-slot:password="props">
+                <template #password="props">
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
@@ -24,7 +24,7 @@
                     <password-strength class="mt-1"
                         :password="props.field.value"/>
                 </template>
-                <template v-slot:password_confirmation="props">
+                <template #password_confirmation="props">
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
@@ -32,7 +32,7 @@
                         @keydown="$emit('update');"
                         v-if="!props.field.meta.hidden"/>
                 </template>
-                <template v-slot:actions-left>
+                <template #actions-left>
                     <div class="level-item"
                         v-if="canAccess('administration.users.destroy')">
                         <a class="button is-danger"
@@ -80,7 +80,7 @@
                 </template>
             </enso-form>
             <accessories>
-                <template v-slot="{ count }">
+                <template #default="{ count }">
                     <tab keep-alive
                         v-if="canAccessTokens"
                         id="Tokens">
@@ -119,7 +119,7 @@ import {
     faUserTie, faTrashAlt, faKey, faRedo,
 } from '@fortawesome/free-solid-svg-icons';
 import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-import { Accessories } from '@enso-ui/bulma';
+import Accessories from '@enso-ui/accessories';
 import { Tab } from '@enso-ui/tabs/bulma';
 import { mapState } from 'vuex';
 import PasswordStrength from '@enso-ui/auth/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
