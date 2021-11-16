@@ -152,6 +152,7 @@
 import {
     mapState, mapMutations, mapActions, mapGetters,
 } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
@@ -165,7 +166,7 @@ library.add(faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt,
 export default {
     name: 'UserProfile',
 
-    components: { Uploader, Divider },
+    components: { Divider, Fa, Uploader },
 
     inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
 

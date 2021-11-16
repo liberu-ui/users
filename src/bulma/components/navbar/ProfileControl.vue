@@ -71,6 +71,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEye, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { clickOutside } from '@enso-ui/directives';
@@ -83,7 +84,7 @@ export default {
 
     directives: { clickOutside },
 
-    components: { CoreProfileControl, Avatar },
+    components: { Avatar, CoreProfileControl, Fa },
 
     methods: {
         ...mapActions('auth', ['logout']),

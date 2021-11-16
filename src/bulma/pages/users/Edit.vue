@@ -114,6 +114,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUserTie, faTrashAlt, faKey, faRedo,
@@ -136,6 +137,7 @@ export default {
         Accessories,
         DeleteModal,
         EnsoForm,
+        Fa,
         FormField,
         PasswordStrength,
         Sessions,

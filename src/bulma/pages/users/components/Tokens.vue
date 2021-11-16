@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Url from '@enso-ui/files/src/bulma/pages/files/components/Url.vue'; // TODO:: refactor to a package
@@ -73,7 +74,10 @@ export default {
     inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
 
     components: {
-        Token, TokenForm, Url,
+        Fa,
+        Token,
+        TokenForm,
+        Url,
     },
 
     props: {

@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Session from './Session.vue';
@@ -50,7 +51,7 @@ export default {
 
     inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
 
-    components: { Session },
+    components: { Fa, Session },
 
     props: {
         id: {

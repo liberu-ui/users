@@ -44,6 +44,7 @@
 
 <script>
 import { VTooltip } from 'v-tooltip';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faTrashAlt, faInfoCircle, faCalendarAlt, faPencilAlt, faLink,
@@ -73,7 +74,7 @@ export default {
 
     directives: { tooltip: VTooltip },
 
-    components: { Confirmation },
+    components: { Confirmation, Fa },
 
     props: {
         session: {

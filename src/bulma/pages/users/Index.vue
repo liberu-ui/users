@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { EnsoTable } from '@enso-ui/tables/bulma';
 import Avatar from './components/Avatar.vue';
 import DeleteModal from './components/DeleteModal.vue';
@@ -32,7 +33,7 @@ import DeleteModal from './components/DeleteModal.vue';
 export default {
     name: 'Index',
 
-    components: { EnsoTable, Avatar, DeleteModal },
+    components: { Avatar,  DeleteModal, EnsoTable, Fa },
 
     inject: ['canAccess', 'i18n'],
 
