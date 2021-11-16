@@ -36,7 +36,7 @@
                             :url="route('core.avatars.store')"
                             file-key="avatar"
                             v-if="isSelfVisiting">
-                            <template #:control="{ controlEvents }">
+                            <template #control="{ controlEvents }">
                                 <a class="button is-info"
                                     v-on="controlEvents">
                                     <span class="icon">

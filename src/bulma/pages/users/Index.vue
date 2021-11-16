@@ -3,11 +3,11 @@
         <enso-table class="box is-paddingless raises-on-hover"
             id="users"
             ref="table">
-            <template #:avatarId="{ row }">
+            <template #avatarId="{ row }">
                 <avatar class="is-24x24"
                     :user="row"/>
             </template>
-            <template #:destroy-button="{ icon, cssClass, row }">
+            <template #destroy-button="{ icon, cssClass, row }">
                 <a class="button is-small is-table-button ml-1"
                     :class="cssClass"
                     @click="deletableUser = row.id">

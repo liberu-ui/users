@@ -1,6 +1,6 @@
 <template>
     <core-profile-control>
-        <template #:default="{ user, avatarLink, hide, isTouch, visitProfile, toggle, visible }">
+        <template #default="{ user, avatarLink, hide, isTouch, visitProfile, toggle, visible }">
             <a class="navbar-item"
                 @click="visitProfile()"
                 v-if="isTouch">

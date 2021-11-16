@@ -31,7 +31,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             user: this.user,
             isTouch: this.isTouch,
             visitProfile: this.visitProfile,

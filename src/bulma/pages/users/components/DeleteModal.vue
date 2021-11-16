@@ -1,5 +1,5 @@
 <template>
-    <modal v-on="$listeners">
+    <modal>
         <div class="box">
             <h5 class="subtitle is-5">
                 {{ i18n("The selected user is about to be deleted. Are you sure?") }}

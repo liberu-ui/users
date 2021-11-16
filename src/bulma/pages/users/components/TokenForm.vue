@@ -1,10 +1,8 @@
 <template>
-    <modal portal="token-form"
-        v-on="$listeners">
+    <modal portal="token-form">
         <enso-form class="box has-background-light"
             v-bind="$attrs"
-            disable-state
-            v-on="$listeners"/>
+            disable-state/>
     </modal>
 </template>
 
