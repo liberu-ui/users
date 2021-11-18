@@ -57,7 +57,7 @@
                             && !impersonating
                         ">
                         <a class="button is-warning"
-                            @click="$root.$emit('start-impersonating', profile.id)">
+                            @click="startImpersonating">
                             <span class="icon">
                                 <fa icon="user-circle"/>
                             </span>
@@ -158,6 +158,7 @@ import {
     faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
 import { Uploader } from '@enso-ui/uploader/bulma';
+import eventBus from '@enso-ui/ui/src/core/services/eventBus';
 import Divider from '@enso-ui/divider';
 import format from '@enso-ui/ui/src/modules/plugins/date-fns/format';
 
@@ -197,20 +198,23 @@ export default {
 
     methods: {
         ...mapMutations(['setUserAvatar']),
+        dateFormat(date) {
+            return date
+                ? format(date, this.meta.dateFormat)
+                : null;
+        },
         fetch() {
             axios.get(this.route(this.$route.name, this.$route.params.user))
                 .then(response => (this.profile = response.data.user))
                 .catch(this.errorHandler);
         },
+        startImpersonating() {
+            eventBus.$emit('start-impersonating', this.profile.id);
+        },
         updateAvatar() {
             axios.patch(this.route('core.avatars.update', this.user.avatar.id))
                 .then(({ data }) => this.setUserAvatar(data.avatarId))
                 .catch(this.errorHandler);
-        },
-        dateFormat(date) {
-            return date
-                ? format(date, this.meta.dateFormat)
-                : null;
         },
     },
 };
