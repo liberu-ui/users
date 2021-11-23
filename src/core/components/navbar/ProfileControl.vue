@@ -35,7 +35,6 @@ export default {
             user: this.user,
             isTouch: this.isTouch,
             visitProfile: this.visitProfile,
-            avatarLink: this.route('core.avatars.show', this.user.avatar.id),
             hide: this.hide,
             toggle: this.toggle,
             visible: this.visible,
