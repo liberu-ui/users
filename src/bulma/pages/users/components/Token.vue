@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { VTooltip } from 'v-tooltip';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -54,8 +53,6 @@ export default {
     name: 'Token',
 
     inject: ['canAccess'],
-
-    directives: { tooltip: VTooltip },
 
     components: { Confirmation, Fa },
 
