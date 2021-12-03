@@ -60,6 +60,8 @@ export default {
         },
     },
 
+    emits: ['remove', 'update'],
+
     data: () => ({
         sessions: [],
         query: '',

@@ -147,6 +147,8 @@ export default {
 
     inject: ['i18n', 'canAccess', 'errorHandler', 'route', 'routerErrorHandler', 'toastr'],
 
+    emits: ['update'],
+
     data: () => ({
         deletableUser: null,
         ready: false,

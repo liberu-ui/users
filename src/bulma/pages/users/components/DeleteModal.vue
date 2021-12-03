@@ -50,6 +50,8 @@ export default {
         },
     },
 
+    emits: ['close', 'destroyed'],
+
     methods: {
         destroy(person = false) {
             axios.delete(this.route('administration.users.destroy', this.userId),

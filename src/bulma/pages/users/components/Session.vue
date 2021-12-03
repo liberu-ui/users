@@ -80,6 +80,8 @@ export default {
         },
     },
 
+    emits: ['delete'],
+
     data: () => ({
         confirmation: false,
     }),

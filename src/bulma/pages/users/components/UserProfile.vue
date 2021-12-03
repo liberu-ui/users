@@ -171,6 +171,8 @@ export default {
 
     inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
 
+    emits: ['start-impersonating'],
+
     data: () => ({
         profile: null,
     }),

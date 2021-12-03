@@ -87,6 +87,8 @@ export default {
         },
     },
 
+    emits: ['remove', 'update'],
+
     data: () => ({
         tokens: [],
         query: '',
