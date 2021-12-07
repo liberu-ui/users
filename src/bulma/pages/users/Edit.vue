@@ -87,7 +87,7 @@
                         <div class="columns is-centered">
                             <div class="column is-half">
                                 <tokens :id="$route.params.user"
-                                    @update="$set(count, 'Tokens', $refs.tokens.count)"
+                                    @update="count.Tokens = $refs.tokens.count"
                                     ref="tokens"/>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="columns is-centered">
                             <div class="column is-half">
                                 <sessions :id="$route.params.user"
-                                    @update="$set(count, 'Sessions', $refs.sessions.count)"
+                                    @update="count.Sessions = $refs.sessions.count"
                                     ref="sessions"/>
                             </div>
                         </div>
