@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/users",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "description": "Basic users package",
   "main": "bulma/index.js",
   "scripts": {
