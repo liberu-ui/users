@@ -4,7 +4,7 @@
             <enso-form class="box has-background-light raises-on-hover">
                 <template #group_id="props">
                     <form-field v-bind="props"
-                        @input="pivotParams.userGroups.id = $event"/>
+                        @update:modelValue="pivotParams.userGroups.id = $event"/>
                 </template>
                 <template #role_id="props">
                     <form-field v-bind="props"

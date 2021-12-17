@@ -9,7 +9,7 @@
                 ">
                 <template #group_id="props">
                     <form-field v-bind="props"
-                        @input="pivotParams.userGroups.id = $event"/>
+                        @update:modelValue="pivotParams.userGroups.id = $event"/>
                 </template>
                 <template #role_id="props">
                     <form-field v-bind="props"
@@ -123,7 +123,7 @@ import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
 import Accessories from '@enso-ui/accessories/bulma';
 import { Tab } from '@enso-ui/tabs/bulma';
 import { mapState } from 'vuex';
-import PasswordStrength from '@enso-ui/auth/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
+import { PasswordStrength } from '@enso-ui/auth';
 import DeleteModal from './components/DeleteModal.vue';
 import Tokens from './components/Tokens.vue';
 import Sessions from './components/Sessions.vue';
