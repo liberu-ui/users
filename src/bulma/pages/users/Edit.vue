@@ -19,7 +19,7 @@
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @input="password = $event.target.value"
+                        @update:modelValue="password = $event.target.value"
                         v-if="!props.field.meta.hidden"/>
                     <password-strength class="mt-1"
                         :password="props.field.value"/>
@@ -28,7 +28,7 @@
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @input="passwordConfirmation = $event.target.value"
+                        @update:modelValue="passwordConfirmation = $event.target.value"
                         @keydown="$emit('update');"
                         v-if="!props.field.meta.hidden"/>
                 </template>
