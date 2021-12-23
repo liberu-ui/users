@@ -71,7 +71,7 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Tokens',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     components: {
         Fa,
@@ -121,14 +121,14 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('administration.users.tokens.index', this.$route.params))
+            this.http.get(this.route('administration.users.tokens.index', this.$route.params))
                 .then(({ data }) => {
                     this.tokens = data;
                     this.$emit('update');
                 }).catch(this.errorHandler);
         },
         destroy({ id }, index) {
-            axios.delete(
+            this.http.delete(
                 this.route('administration.users.tokens.destroy', this.$route.params),
                 { params: { id } },
             ).then(({ data }) => {

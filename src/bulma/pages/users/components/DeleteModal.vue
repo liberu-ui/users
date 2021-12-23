@@ -41,7 +41,7 @@ export default {
 
     directives: { focus },
 
-    inject: ['i18n', 'errorHandler', 'route'],
+    inject: ['http', 'i18n', 'errorHandler', 'route'],
 
     props: {
         userId: {
@@ -54,7 +54,7 @@ export default {
 
     methods: {
         destroy(person = false) {
-            axios.delete(this.route('administration.users.destroy', this.userId),
+            this.http.delete(this.route('administration.users.destroy', this.userId),
                 { params: { person: !!person } })
                 .then(({ data }) => this.$emit('destroyed', data))
                 .catch(this.errorHandler);

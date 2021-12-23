@@ -145,7 +145,10 @@ export default {
         Tokens,
     },
 
-    inject: ['i18n', 'canAccess', 'errorHandler', 'route', 'routerErrorHandler', 'toastr'],
+    inject: [
+        'http', 'i18n', 'canAccess', 'errorHandler', 'route',
+        'routerErrorHandler', 'toastr'
+    ],
 
     emits: ['update'],
 
@@ -178,7 +181,7 @@ export default {
                 .catch(this.routerErrorHandler));
         },
         resetPassword() {
-            axios.post(this.route('administration.users.resetPassword', this.$route.params))
+            this.http.post(this.route('administration.users.resetPassword', this.$route.params))
                 .then(({ data }) => this.toastr.success(data.message))
                 .catch(this.errorHandler);
         },

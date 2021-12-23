@@ -169,7 +169,10 @@ export default {
 
     components: { Divider, Fa, Uploader },
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'routerErrorHandler'],
+    inject: [
+        'canAccess', 'errorHandler', 'http', 'i18n',
+        'route', 'routerErrorHandler'
+    ],
 
     emits: ['start-impersonating'],
 
@@ -206,7 +209,7 @@ export default {
                 : null;
         },
         fetch() {
-            axios.get(this.route(this.$route.name, this.$route.params.user))
+            this.http.get(this.route(this.$route.name, this.$route.params.user))
                 .then(response => (this.profile = response.data.user))
                 .catch(this.errorHandler);
         },
@@ -214,7 +217,7 @@ export default {
             eventBus.$emit('start-impersonating', this.profile.id);
         },
         updateAvatar() {
-            axios.patch(this.route('core.avatars.update', this.user.avatar.id))
+            this.http.patch(this.route('core.avatars.update', this.user.avatar.id))
                 .then(({ data }) => this.setUserAvatar(data.avatarId))
                 .catch(this.errorHandler);
         },

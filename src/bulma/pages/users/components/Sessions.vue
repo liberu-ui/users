@@ -49,7 +49,7 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Sessions',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     components: { Fa, Session },
 
@@ -89,14 +89,14 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('administration.users.sessions.index', this.$route.params))
+            this.http.get(this.route('administration.users.sessions.index', this.$route.params))
                 .then(({ data }) => {
                     this.sessions = data;
                     this.$emit('update');
                 }).catch(this.errorHandler);
         },
         destroy({ id }, index) {
-            axios.delete(
+            this.http.delete(
                 this.route('administration.users.sessions.destroy', this.$route.params),
                 { params: { id } },
             ).then(({ data }) => {
