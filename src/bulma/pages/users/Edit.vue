@@ -9,7 +9,7 @@
                 ">
                 <template #group_id="props">
                     <form-field v-bind="props"
-                        @update:modelValue="pivotParams.userGroups.id = $event"/>
+                        @update:model-value="pivotParams.userGroups.id = $event"/>
                 </template>
                 <template #role_id="props">
                     <form-field v-bind="props"
@@ -19,7 +19,7 @@
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @update:modelValue="password = $event.target.value"
+                        @update:model-value="password = $event.target.value"
                         v-if="!props.field.meta.hidden"/>
                     <password-strength class="mt-1"
                         :password="props.field.value"/>
@@ -28,7 +28,7 @@
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @update:modelValue="passwordConfirmation = $event.target.value"
+                        @update:model-value="passwordConfirmation = $event.target.value"
                         @keydown="$emit('update');"
                         v-if="!props.field.meta.hidden"/>
                 </template>
