@@ -49,9 +49,9 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Sessions',
 
-    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
-
     components: { Fa, Session },
+
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     props: {
         id: {
@@ -73,7 +73,8 @@ export default {
             const query = this.query.toLowerCase();
 
             return query
-                ? this.sessions.filter(({ ipAddress, OS, browser }) => OS.toLowerCase().indexOf(query) > -1
+                ? this.sessions.filter(({ ipAddress, OS, browser }) => OS
+                    .toLowerCase().indexOf(query) > -1
                     || ipAddress.toLowerCase().indexOf(query) > -1
                     || browser.toLowerCase().indexOf(query) > -1)
                 : this.sessions;

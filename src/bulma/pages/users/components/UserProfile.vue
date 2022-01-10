@@ -149,9 +149,7 @@
 </template>
 
 <script>
-import {
-    mapState, mapMutations, mapActions, mapGetters,
-} from 'vuex';
+import { mapState, mapMutations, mapGetters } from 'vuex';
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -171,7 +169,7 @@ export default {
 
     inject: [
         'canAccess', 'errorHandler', 'http', 'i18n',
-        'route', 'routerErrorHandler'
+        'route', 'routerErrorHandler',
     ],
 
     emits: ['start-impersonating'],

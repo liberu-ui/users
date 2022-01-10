@@ -33,7 +33,9 @@ import DeleteModal from './components/DeleteModal.vue';
 export default {
     name: 'Index',
 
-    components: { Avatar,  DeleteModal, EnsoTable, Fa },
+    components: {
+        Avatar, DeleteModal, EnsoTable, Fa,
+    },
 
     inject: ['canAccess', 'i18n'],
 

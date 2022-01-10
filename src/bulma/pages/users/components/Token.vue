@@ -52,9 +52,9 @@ library.add([
 export default {
     name: 'Token',
 
-    inject: ['canAccess'],
-
     components: { Confirmation, Fa },
+
+    inject: ['canAccess'],
 
     props: {
         token: {

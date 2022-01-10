@@ -69,9 +69,9 @@ library.add([
 export default {
     name: 'Session',
 
-    inject: ['canAccess'],
-
     components: { Confirmation, Fa },
+
+    inject: ['canAccess'],
 
     props: {
         session: {

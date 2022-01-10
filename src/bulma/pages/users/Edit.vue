@@ -147,7 +147,7 @@ export default {
 
     inject: [
         'http', 'i18n', 'canAccess', 'errorHandler', 'route',
-        'routerErrorHandler', 'toastr'
+        'routerErrorHandler', 'toastr',
     ],
 
     emits: ['update'],

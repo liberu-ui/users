@@ -79,11 +79,11 @@ export default {
 
     components: { Avatar, CoreProfileControl, Fa },
 
+    inject: ['i18n'],
+
     methods: {
         ...mapActions('auth', ['logout']),
     },
-
-    inject: ['i18n'],
 };
 </script>
 

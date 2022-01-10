@@ -40,11 +40,11 @@
             </p>
         </div>
         <div>
-            <div v-for="(token, index) in filtered"
-                :key="token.id">
+            <div v-for="(filteredToken, index) in filtered"
+                :key="filteredToken.id">
                 <token :id="id"
-                    :token="token"
-                    @delete="destroy(token, index)"/>
+                    :token="filteredToken"
+                    @delete="destroy(filteredToken, index)"/>
             </div>
         </div>
         <token-form :path="create"
@@ -71,14 +71,14 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Tokens',
 
-    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
-
     components: {
         Fa,
         Token,
         TokenForm,
         Url,
     },
+
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     props: {
         id: {
