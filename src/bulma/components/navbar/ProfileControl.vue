@@ -1,15 +1,10 @@
 <template>
     <core-profile-control>
-        <template v-slot:default="{ user, avatarLink, hide, isTouch, visitProfile, toggle, visible }">
+        <template #default="{ user, hide, isTouch, visitProfile, toggle, visible }">
             <a class="navbar-item"
                 @click="visitProfile()"
                 v-if="isTouch">
-                <img class="is-rounded"
-                    :src="avatarLink">
-                <span v-if="!isTouch"
-                    class="ml-1">
-                    {{ user.person.appellative || user.person.name }}
-                </span>
+                <avatar :user="user"/>
             </a>
             <div v-click-outside="hide"
                 :class="[
@@ -19,15 +14,13 @@
                 ]" v-else>
                 <a class="navbar-link is-arrowless"
                     @click="toggle()">
-                    <img class="is-rounded"
-                        :src="avatarLink">
-                    <span v-if="!isTouch"
-                        class="ml-1">
+                    <avatar :user="user"/>
+                    <span class="ml-1">
                         {{ user.person.appellative || user.person.name }}
                     </span>
                 </a>
-                <div v-if="visible"
-                    class="navbar-dropdown is-right">
+                <div class="navbar-dropdown is-right"
+                    v-if="visible">
                     <div class="user-panel p-2">
                         <avatar class="is-96x96"
                             :user="user"/>
@@ -71,6 +64,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faEye, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { clickOutside } from '@enso-ui/directives';
@@ -83,13 +77,13 @@ export default {
 
     directives: { clickOutside },
 
-    components: { CoreProfileControl, Avatar },
+    components: { Avatar, CoreProfileControl, Fa },
+
+    inject: ['i18n'],
 
     methods: {
         ...mapActions('auth', ['logout']),
     },
-
-    inject: ['i18n'],
 };
 </script>
 

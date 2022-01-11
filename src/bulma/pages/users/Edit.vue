@@ -7,32 +7,32 @@
                     ready = true;
                     pivotParams.userGroups.id = $refs.form.field('group_id').value;
                 ">
-                <template v-slot:group_id="props">
+                <template #group_id="props">
                     <form-field v-bind="props"
-                        @input="pivotParams.userGroups.id = $event"/>
+                        @update:model-value="pivotParams.userGroups.id = $event"/>
                 </template>
-                <template v-slot:role_id="props">
+                <template #role_id="props">
                     <form-field v-bind="props"
                         :pivot-params="pivotParams"/>
                 </template>
-                <template v-slot:password="props">
+                <template #password="props">
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @input="password = $event.target.value"
+                        @update:model-value="password = $event.target.value"
                         v-if="!props.field.meta.hidden"/>
                     <password-strength class="mt-1"
                         :password="props.field.value"/>
                 </template>
-                <template v-slot:password_confirmation="props">
+                <template #password_confirmation="props">
                     <form-field v-bind="props"
                         @focus="props.field.meta.readonly = false"
                         @blur="props.field.meta.readonly = true"
-                        @input="passwordConfirmation = $event.target.value"
+                        @update:model-value="passwordConfirmation = $event.target.value"
                         @keydown="$emit('update');"
                         v-if="!props.field.meta.hidden"/>
                 </template>
-                <template v-slot:actions-left>
+                <template #actions-left>
                     <div class="level-item"
                         v-if="canAccess('administration.users.destroy')">
                         <a class="button is-danger"
@@ -80,14 +80,14 @@
                 </template>
             </enso-form>
             <accessories>
-                <template v-slot="{ count }">
+                <template #default="{ count }">
                     <tab keep-alive
                         v-if="canAccessTokens"
                         id="Tokens">
                         <div class="columns is-centered">
                             <div class="column is-half">
                                 <tokens :id="$route.params.user"
-                                    @update="$set(count, 'Tokens', $refs.tokens.count)"
+                                    @update="count.Tokens = $refs.tokens.count"
                                     ref="tokens"/>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                         <div class="columns is-centered">
                             <div class="column is-half">
                                 <sessions :id="$route.params.user"
-                                    @update="$set(count, 'Sessions', $refs.sessions.count)"
+                                    @update="count.Sessions = $refs.sessions.count"
                                     ref="sessions"/>
                             </div>
                         </div>
@@ -114,15 +114,16 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUserTie, faTrashAlt, faKey, faRedo,
 } from '@fortawesome/free-solid-svg-icons';
 import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-import { Accessories } from '@enso-ui/bulma';
+import Accessories from '@enso-ui/accessories/bulma';
 import { Tab } from '@enso-ui/tabs/bulma';
 import { mapState } from 'vuex';
-import PasswordStrength from '@enso-ui/auth/src/bulma/pages/auth/components/PasswordStrength.vue'; // TODO::FIX IT!
+import { PasswordStrength } from '@enso-ui/auth';
 import DeleteModal from './components/DeleteModal.vue';
 import Tokens from './components/Tokens.vue';
 import Sessions from './components/Sessions.vue';
@@ -136,6 +137,7 @@ export default {
         Accessories,
         DeleteModal,
         EnsoForm,
+        Fa,
         FormField,
         PasswordStrength,
         Sessions,
@@ -143,7 +145,12 @@ export default {
         Tokens,
     },
 
-    inject: ['i18n', 'canAccess', 'errorHandler', 'route', 'routerErrorHandler', 'toastr'],
+    inject: [
+        'http', 'i18n', 'canAccess', 'errorHandler', 'route',
+        'routerErrorHandler', 'toastr',
+    ],
+
+    emits: ['update'],
 
     data: () => ({
         deletableUser: null,
@@ -174,7 +181,7 @@ export default {
                 .catch(this.routerErrorHandler));
         },
         resetPassword() {
-            axios.post(this.route('administration.users.resetPassword', this.$route.params))
+            this.http.post(this.route('administration.users.resetPassword', this.$route.params))
                 .then(({ data }) => this.toastr.success(data.message))
                 .catch(this.errorHandler);
         },

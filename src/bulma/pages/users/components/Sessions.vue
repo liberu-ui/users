@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Session from './Session.vue';
@@ -48,9 +49,9 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Sessions',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
+    components: { Fa, Session },
 
-    components: { Session },
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     props: {
         id: {
@@ -58,6 +59,8 @@ export default {
             required: true,
         },
     },
+
+    emits: ['remove', 'update'],
 
     data: () => ({
         sessions: [],
@@ -70,7 +73,8 @@ export default {
             const query = this.query.toLowerCase();
 
             return query
-                ? this.sessions.filter(({ ipAddress, OS, browser }) => OS.toLowerCase().indexOf(query) > -1
+                ? this.sessions.filter(({ ipAddress, OS, browser }) => OS
+                    .toLowerCase().indexOf(query) > -1
                     || ipAddress.toLowerCase().indexOf(query) > -1
                     || browser.toLowerCase().indexOf(query) > -1)
                 : this.sessions;
@@ -86,14 +90,14 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('administration.users.sessions.index', this.$route.params))
+            this.http.get(this.route('administration.users.sessions.index', this.$route.params))
                 .then(({ data }) => {
                     this.sessions = data;
                     this.$emit('update');
                 }).catch(this.errorHandler);
         },
         destroy({ id }, index) {
-            axios.delete(
+            this.http.delete(
                 this.route('administration.users.sessions.destroy', this.$route.params),
                 { params: { id } },
             ).then(({ data }) => {

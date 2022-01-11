@@ -1,18 +1,14 @@
 <template>
-    <figure class="image avatar"
-        v-tooltip="tooltip">
+    <figure class="image avatar">
         <img class="is-rounded"
-            :src="route('core.avatars.show', user.avatar.id)">
+            :src="link">
     </figure>
 </template>
 
 <script>
-import { VTooltip } from 'v-tooltip';
 
 export default {
     name: 'Avatar',
-
-    directives: { tooltip: VTooltip },
 
     inject: ['route'],
 
@@ -24,11 +20,14 @@ export default {
     },
 
     computed: {
+        link() {
+            return this.route('core.avatars.show', this.user.avatar.id);
+        },
         tooltip() {
             return this.user.person?.appellative
                 ?? this.user.person?.name;
-        }
-    }
+        },
+    },
 };
 </script>
 

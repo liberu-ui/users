@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { VTooltip } from 'v-tooltip';
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faTrashAlt, faInfoCircle, faCalendarAlt, faPencilAlt, faLink,
@@ -69,11 +69,9 @@ library.add([
 export default {
     name: 'Session',
 
+    components: { Confirmation, Fa },
+
     inject: ['canAccess'],
-
-    directives: { tooltip: VTooltip },
-
-    components: { Confirmation },
 
     props: {
         session: {
@@ -81,6 +79,8 @@ export default {
             required: true,
         },
     },
+
+    emits: ['delete'],
 
     data: () => ({
         confirmation: false,

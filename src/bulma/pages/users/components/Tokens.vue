@@ -40,11 +40,11 @@
             </p>
         </div>
         <div>
-            <div v-for="(token, index) in filtered"
-                :key="token.id">
+            <div v-for="(filteredToken, index) in filtered"
+                :key="filteredToken.id">
                 <token :id="id"
-                    :token="token"
-                    @delete="destroy(token, index)"/>
+                    :token="filteredToken"
+                    @delete="destroy(filteredToken, index)"/>
             </div>
         </div>
         <token-form :path="create"
@@ -59,9 +59,10 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
-import Url from '@enso-ui/files/src/bulma/pages/files/components/Url.vue'; // TODO:: refactor to a package
+import { Url } from '@enso-ui/files'; // TODO:: refactor to a package
 import Token from './Token.vue';
 import TokenForm from './TokenForm.vue';
 
@@ -70,11 +71,14 @@ library.add(faPlus, faSync, faSearch);
 export default {
     name: 'Tokens',
 
-    inject: ['canAccess', 'errorHandler', 'i18n', 'route', 'toastr'],
-
     components: {
-        Token, TokenForm, Url,
+        Fa,
+        Token,
+        TokenForm,
+        Url,
     },
+
+    inject: ['canAccess', 'errorHandler', 'http', 'i18n', 'route', 'toastr'],
 
     props: {
         id: {
@@ -82,6 +86,8 @@ export default {
             required: true,
         },
     },
+
+    emits: ['remove', 'update'],
 
     data: () => ({
         tokens: [],
@@ -115,14 +121,14 @@ export default {
 
     methods: {
         fetch() {
-            axios.get(this.route('administration.users.tokens.index', this.$route.params))
+            this.http.get(this.route('administration.users.tokens.index', this.$route.params))
                 .then(({ data }) => {
                     this.tokens = data;
                     this.$emit('update');
                 }).catch(this.errorHandler);
         },
         destroy({ id }, index) {
-            axios.delete(
+            this.http.delete(
                 this.route('administration.users.tokens.destroy', this.$route.params),
                 { params: { id } },
             ).then(({ data }) => {
