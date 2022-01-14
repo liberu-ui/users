@@ -6,12 +6,11 @@
                 v-if="isTouch">
                 <avatar :user="user"/>
             </a>
-            <div v-click-outside="hide"
-                :class="[
-                    'navbar-item user-profile',
-                    { 'has-dropdown': !isTouch },
-                    { 'is-active': visible }
-                ]" v-else>
+            <div :class="[
+                'navbar-item user-profile',
+                { 'has-dropdown': !isTouch },
+                { 'is-active': visible }
+            ]" v-else>
                 <a class="navbar-link is-arrowless"
                     @click="toggle()">
                     <avatar :user="user"/>
@@ -20,6 +19,7 @@
                     </span>
                 </a>
                 <div class="navbar-dropdown is-right"
+                    v-click-outside="hide"
                     v-if="visible">
                     <div class="user-panel p-2">
                         <avatar class="is-96x96"
