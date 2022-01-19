@@ -4,7 +4,8 @@
             <a class="navbar-item"
                 @click="visitProfile()"
                 v-if="isTouch">
-                <avatar :user="user"/>
+                <avatar class="is-30x30"
+                    :user="user"/>
             </a>
             <div :class="[
                 'navbar-item user-profile',
@@ -13,7 +14,8 @@
             ]" v-else>
                 <a class="navbar-link is-arrowless"
                     @click="toggle()">
-                    <avatar :user="user"/>
+                    <avatar class="is-30x30"
+                        :user="user"/>
                     <span class="ml-1">
                         {{ user.person.appellative || user.person.name }}
                     </span>
