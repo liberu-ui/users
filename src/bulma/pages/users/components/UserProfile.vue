@@ -32,7 +32,7 @@
                         </a>
                     </p>
                     <p class="control">
-                        <uploader @upload-successful="setUserAvatar($event.id)"
+                        <enso-uploader @upload-successful="setUserAvatar($event.id)"
                             :url="route('core.avatars.store')"
                             file-key="avatar"
                             v-if="isSelfVisiting">
@@ -47,7 +47,7 @@
                                     </span>
                                 </a>
                             </template>
-                        </uploader>
+                        </enso-uploader>
                     </p>
                     <p class="control"
                         v-if="
@@ -155,7 +155,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import { Uploader } from '@enso-ui/uploader/bulma';
+import { EnsoUploader } from '@enso-ui/uploader/bulma';
 import eventBus from '@enso-ui/ui/src/core/services/eventBus';
 import Divider from '@enso-ui/divider';
 import format from '@enso-ui/ui/src/modules/plugins/date-fns/format';
@@ -165,7 +165,7 @@ library.add(faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt,
 export default {
     name: 'UserProfile',
 
-    components: { Divider, Fa, Uploader },
+    components: { Divider, Fa, EnsoUploader },
 
     inject: [
         'canAccess', 'errorHandler', 'http', 'i18n',
