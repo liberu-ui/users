@@ -13,7 +13,7 @@
                 { 'is-active': visible }
             ]" v-else>
                 <a class="navbar-link is-arrowless"
-                    @click="toggle()">
+                    @click.stop="toggle()">
                     <avatar class="is-30x30"
                         :user="user"/>
                     <span class="ml-1">
