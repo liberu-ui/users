@@ -14,15 +14,13 @@
         <divider class="my-2"/>
         <div class="columns mt-3">
             <div class="column">
-                <figure class="image is-128x128 avatar">
-                    <img class="is-rounded"
-                        :src="route('core.avatars.show', avatarId)">
-                </figure>
+                <avatar class="is-128x128"
+                    :user="isSelfVisiting ? user : profile"/>
                 <div class="field is-grouped is-justify-content-center mt-3">
                     <p class="control">
                         <a class="button is-primary"
                             v-if="isSelfVisiting"
-                            @click="updateAvatar">
+                            @click="generateAvatar">
                             <span class="icon">
                                 <fa icon="sync-alt"/>
                             </span>
@@ -32,7 +30,7 @@
                         </a>
                     </p>
                     <p class="control">
-                        <enso-uploader @upload-successful="setUserAvatar($event.id)"
+                        <enso-uploader @upload-successful="updateAvatar"
                             :url="route('core.avatars.store')"
                             file-key="avatar"
                             v-if="isSelfVisiting">
@@ -155,6 +153,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
+import Avatar from '@enso-ui/users/src/bulma/pages/users/components/Avatar.vue';
 import { EnsoUploader } from '@enso-ui/uploader/bulma';
 import eventBus from '@enso-ui/ui/src/core/services/eventBus';
 import Divider from '@enso-ui/divider';
@@ -165,7 +164,7 @@ library.add(faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt,
 export default {
     name: 'UserProfile',
 
-    components: { Divider, Fa, EnsoUploader },
+    components: { Avatar, Divider, Fa, EnsoUploader },
 
     inject: [
         'canAccess', 'errorHandler', 'http', 'i18n',
@@ -186,11 +185,6 @@ export default {
         isSelfVisiting() {
             return this.user.id === this.profile.id;
         },
-        avatarId() {
-            return this.isSelfVisiting
-                ? this.user.avatar.id
-                : this.profile.avatar.id;
-        },
     },
 
     created() {
@@ -200,7 +194,7 @@ export default {
     },
 
     methods: {
-        ...mapMutations(['setUserAvatar']),
+        ...mapMutations(['updateAvatar']),
         dateFormat(date) {
             return date
                 ? format(date, this.meta.dateFormat)
@@ -214,9 +208,9 @@ export default {
         startImpersonating() {
             eventBus.$emit('start-impersonating', this.profile.id);
         },
-        updateAvatar() {
+        generateAvatar() {
             this.http.patch(this.route('core.avatars.update', this.user.avatar.id))
-                .then(({ data }) => this.setUserAvatar(data.avatarId))
+                .then(this.updateAvatar)
                 .catch(this.errorHandler);
         },
     },
@@ -224,10 +218,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .avatar {
-        margin: auto;
-    }
-
     .controls, .details {
         justify-content: center;
     }
