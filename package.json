@@ -26,7 +26,6 @@
     "@enso-ui/confirmation": "^2.0",
     "@enso-ui/directives": "^2.0",
     "@enso-ui/divider": "^2.0",
-    "@enso-ui/files": "^4.0",
     "@enso-ui/forms": "^3.0",
     "@enso-ui/modal": "^3.0",
     "@enso-ui/tables": "^3.0",
