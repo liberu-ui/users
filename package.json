@@ -22,7 +22,7 @@
   "homepage": "https://github.com/enso-ui/users#readme",
   "dependencies": {
     "@enso-ui/accessories": "^4.0",
-    "@enso-ui/auth": "^2.0",
+    "@enso-ui/auth": "^3.0",
     "@enso-ui/confirmation": "^2.0",
     "@enso-ui/directives": "^2.0",
     "@enso-ui/divider": "^2.0",
@@ -30,7 +30,7 @@
     "@enso-ui/modal": "^3.0",
     "@enso-ui/tables": "^3.0",
     "@enso-ui/tabs": "^2.0",
-    "@enso-ui/ui": "^5.0",
+    "@enso-ui/ui": "^6.0",
     "@enso-ui/uploader": "^2.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
