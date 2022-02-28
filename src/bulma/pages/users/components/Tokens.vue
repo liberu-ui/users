@@ -62,7 +62,7 @@
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faPlus, faSync, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { Url } from './Url.vue';
+import Url from './Url.vue';
 import Token from './Token.vue';
 import TokenForm from './TokenForm.vue';
 
