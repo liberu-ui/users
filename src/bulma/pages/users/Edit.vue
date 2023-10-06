@@ -119,11 +119,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUserTie, faTrashAlt, faKey, faRedo,
 } from '@fortawesome/free-solid-svg-icons';
-import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
-import Accessories from '@enso-ui/accessories/bulma';
-import { Tab } from '@enso-ui/tabs/bulma';
+import { EnsoForm, FormField } from '@liberu-ui/forms/bulma';
+import Accessories from '@liberu-ui/accessories/bulma';
+import { Tab } from '@liberu-ui/tabs/bulma';
 import { mapState } from 'vuex';
-import { PasswordStrength } from '@enso-ui/auth';
+import { PasswordStrength } from '@liberu-ui/auth';
 import DeleteModal from './components/DeleteModal.vue';
 import Tokens from './components/Tokens.vue';
 import Sessions from './components/Sessions.vue';

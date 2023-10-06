@@ -26,7 +26,7 @@
 
 <script>
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
-import { EnsoTable } from '@enso-ui/tables/bulma';
+import { EnsoTable } from '@liberu-ui/tables/bulma';
 import Avatar from './components/Avatar.vue';
 import DeleteModal from './components/DeleteModal.vue';
 

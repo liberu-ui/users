@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { EnsoForm, FormField } from '@enso-ui/forms/bulma';
+import { EnsoForm, FormField } from '@liberu-ui/forms/bulma';
 
 export default {
     name: 'Create',
