@@ -153,11 +153,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import Avatar from '@enso-ui/users/src/bulma/pages/users/components/Avatar.vue';
-import { EnsoUploader } from '@enso-ui/uploader/bulma';
-import eventBus from '@enso-ui/ui/src/core/services/eventBus';
-import Divider from '@enso-ui/divider';
-import format from '@enso-ui/ui/src/modules/plugins/date-fns/format';
+import Avatar from '@liberu-ui/users/src/bulma/pages/users/components/Avatar.vue';
+import { EnsoUploader } from '@liberu-ui/uploader/bulma';
+import eventBus from '@liberu-ui/ui/src/core/services/eventBus';
+import Divider from '@liberu-ui/divider';
+import format from '@liberu-ui/ui/src/modules/plugins/date-fns/format';
 
 library.add(faUser, faUserCircle, faSyncAlt, faTrashAlt, faUpload, faSignOutAlt, faPencilAlt);
 

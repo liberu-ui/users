@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import { Modal } from '@enso-ui/modal/bulma';
-import { EnsoForm } from '@enso-ui/forms/bulma';
+import { Modal } from '@liberu-ui/modal/bulma';
+import { EnsoForm } from '@liberu-ui/forms/bulma';
 
 export default {
     name: 'TokenForm',

@@ -26,9 +26,9 @@
 import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faCopy } from '@fortawesome/free-solid-svg-icons';
-import { focus, selectOnFocus } from '@enso-ui/directives';
-import { Modal } from '@enso-ui/modal/bulma';
-import Clipboard from '@enso-ui/clipboard';
+import { focus, selectOnFocus } from '@liberu-ui/directives';
+import { Modal } from '@liberu-ui/modal/bulma';
+import Clipboard from '@liberu-ui/clipboard';
 
 library.add(faCopy);
 

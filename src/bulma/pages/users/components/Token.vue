@@ -42,8 +42,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
     faTrashAlt, faInfoCircle, faCalendarAlt, faPencilAlt,
 } from '@fortawesome/free-solid-svg-icons';
-import Confirmation from '@enso-ui/confirmation/bulma';
-import formatDistance from '@enso-ui/ui/src/modules/plugins/date-fns/formatDistance';
+import Confirmation from '@liberu-ui/confirmation/bulma';
+import formatDistance from '@liberu-ui/ui/src/modules/plugins/date-fns/formatDistance';
 
 library.add([
     faCalendarAlt, faInfoCircle, faPencilAlt, faTrashAlt,
