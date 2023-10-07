@@ -1,6 +1,6 @@
 {
   "name": "@liberu-ui/users",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "Basic users package",
   "main": "bulma/index.ts",
   "scripts": {
