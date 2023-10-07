@@ -2,7 +2,7 @@
   "name": "@liberu-ui/users",
   "version": "3.0.6",
   "description": "Basic users package",
-  "main": "bulma/index.js",
+  "main": "bulma/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
